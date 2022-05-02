@@ -143,25 +143,25 @@ public class Logic1
     /// </summary>
     public string AlarmClock(int day, bool vacation)
     {
-        
-        if (!vacation && day == 1 || day == 2 || day == 3 || day == 4 || day == 5 )
-        {
-            return "7:00";
-        }
-        if (vacation && day == 1 || day == 2 || day == 3 || day == 4 || day == 5)
+        if ((day == 1 || day == 2 || day == 3 || day == 4 || day == 5 && vacation) || (day == 0 || day == 6 && !vacation))
         {
             return "10:00";
         }
-        if (!vacation && day == 0 || day == 6)
-        {
-            return "10:00";
-        }
-        if (vacation && day == 0 || day == 6)
+        //if (!vacation && day == 1 || day == 2 || day == 3 || day == 4 || day == 5)
+        //{
+        //    return "7:00";
+        //}
+        if (day == 6 || day == 0 && vacation)
         {
             return "off";
         }
+        
+        //if (day == 0 || day == 6 && !vacation)
+        //{
+        //    return "10:00";
+        //}
 
-        return "off";
+        return "7:00";
     }
 
     /// <summary>
@@ -264,7 +264,7 @@ public class Logic1
     /// </summary>
     public bool Old35(int n)
     {
-        if (n % 3 == 0 || n % 5 == 0)
+        if ((n % 3 == 0 && n % 5 != 0) || (n % 3 != 0 && n % 5 == 0))
         {
             return true;
         }
@@ -366,6 +366,10 @@ public class Logic1
     /// </summary>
     public string FizzString(string str)
     {
+        if (str.StartsWith("f") && str.EndsWith("b"))
+        {
+            return "FizzBuzz";
+        }
         if (str.StartsWith("f"))
         {
             return "Fizz";
@@ -374,10 +378,7 @@ public class Logic1
         {
             return "Buzz";
         }
-        if (str.StartsWith("f") && str.EndsWith("b"))
-        {
-            return "FizzBuzz";
-        }
+        
 
         return str;
     }
@@ -478,6 +479,10 @@ public class Logic1
     /// </summary>
     public bool LessBy10(int a, int b, int c)
     {
+        if(a >= 10 || b >= 10 || c >= 10)
+        {
+            return true;
+        }
        
         return false;
     }
