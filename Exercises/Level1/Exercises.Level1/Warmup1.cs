@@ -18,7 +18,11 @@ public class Warmup1
     /// </summary>
     public bool SleepIn(bool weekday, bool vacation)
     {
-        throw new NotImplementedException();
+        if(!weekday || vacation)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -33,7 +37,11 @@ public class Warmup1
     /// </summary>
     public bool MonkeyTrouble(bool aSmile, bool bSmile)
     {
-        throw new NotImplementedException();
+        if(aSmile && bSmile || !aSmile && !bSmile)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -46,7 +54,12 @@ public class Warmup1
     /// </summary>
     public int SumDouble(int a, int b)
     {
-        throw new NotImplementedException();
+        int sum = a + b;
+        if(a == b)
+        {
+            return (a + b)*2;
+        }
+        return sum;
     }
 
     /// <summary>
@@ -59,7 +72,15 @@ public class Warmup1
     /// </summary>
     public int Diff21(int n)
     {
-        throw new NotImplementedException();
+        if (n == 21)
+        {
+            return Math.Abs(n - 21);
+        }
+        if (n < 21)
+        {
+            return Math.Abs(n) * 2;
+        }
+        return n;
     }
 
     /// <summary>
@@ -71,7 +92,11 @@ public class Warmup1
     /// </summary>
     public bool ParrotTrouble(bool talking, int hour)
     {
-        throw new NotImplementedException();
+        if (talking && hour <= 7 && hour >= 20)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -83,7 +108,11 @@ public class Warmup1
     /// </summary>
     public bool Makes10(int a, int b)
     {
-        throw new NotImplementedException();
+        if(a == 10 || b == 10 || a + b == 10)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -95,7 +124,12 @@ public class Warmup1
     /// </summary>
     public bool NearHundred(int n)
     {
-        throw new NotImplementedException();
+        
+        if(Math.Abs(n - 10) == 100 || Math.Abs(n - 10) == 200)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -108,7 +142,15 @@ public class Warmup1
     /// </summary>
     public bool PosNeg(int a, int b, bool negative)
     {
-        throw new NotImplementedException();
+        if(a < 0 && b > 0)
+        {
+            return true;
+        }
+        if(negative && a < 0 && b < 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
