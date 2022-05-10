@@ -329,7 +329,7 @@ public class Array1
         return (nums[0] == 2 && nums[1] == 2 || nums[0] == 3 && nums[1] == 3);
         return (nums[0] == 2 && nums[1] == 3 || nums[0] == 3 && nums[1] == 2);
 
-        return false;
+        //return false;
     }
 
     /// <summary>
@@ -553,14 +553,16 @@ public class Array1
     {
 
         int length = nums.Length;
+
         if (nums.Length == 0 || nums.Length == 1)
         {
             return false;
         }
-        else if ((nums[0] == 1 && nums[1] == 3) || (nums[1] == 1 && nums[2] == 3) || (nums[length - 1] == 3) && nums[length - 2] == 1)
+        else if ((nums[0] == 1 && nums[1] == 3) || (nums[1] == 1 && nums[2] == 3) || (nums[length - 1] == 3) && nums[length - 2] == 1 || (nums[length - 2] == 3) && nums[length - 3] == 1)
         {
             return true;
         }
+
         return false;
     }
 
@@ -603,32 +605,27 @@ public class Array1
     /// </summary>
     public int[] Front11(int[] a, int[] b)
     {
-        int[] newArray = new int[2];
 
-        if (a.Length == 0 && b.Length == 0)
+        if (b.Length == 0 && a.Length == 0)
         {
-            return new int[0];
+            return new int[] { };
         }
 
-        if (a.Length != 0 || b.Length != 0)
+        if (a.Length == 0)
         {
-            newArray[0] = a[0];
-            newArray[1] = b[0];
+
+            return new int[] { b[0] };
+
+        }
+        if (b.Length == 0)
+        {
+
+            return new int[] { a[0] };
         }
 
-        if (a.Length != 0 && b.Length == 0)
-        {
-            newArray[0] = a[0];
-            return new int[0];
-        }
-        else if (a.Length == 0 && b.Length != 0)
-        {
-            newArray[0] = a[0];
-            return new int[0];
+        return new int[] { a[0], b[0] };
+
         }
 
-
-
-        return newArray;
     }
-}
+
